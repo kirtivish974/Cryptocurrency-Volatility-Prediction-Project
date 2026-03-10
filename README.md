@@ -106,17 +106,21 @@ The model explains approximately **75% of the variance in cryptocurrency volatil
 
 
 crypto-volatility-prediction
+
 │
 ├── data
-│ └── crypto_data.csv
+
+ └── crypto_data.csv
 
 │
 ├── notebooks
-│ └── Crypto_volatility_prediction.ipynb
+
+ └── Crypto_volatility_prediction.ipynb
 
 │
 ├── model
-│ └── crypto_model.pkl
+
+ └── crypto_model.pkl
 
 │
 └── README.md
