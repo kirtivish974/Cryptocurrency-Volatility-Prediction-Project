@@ -109,12 +109,15 @@ crypto-volatility-prediction
 │
 ├── data
 │ └── crypto_data.csv
+
 │
 ├── notebooks
 │ └── Crypto_volatility_prediction.ipynb
+
 │
 ├── model
 │ └── crypto_model.pkl
+
 │
 └── README.md
 
