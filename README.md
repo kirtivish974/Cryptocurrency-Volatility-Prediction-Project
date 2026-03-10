@@ -1,180 +1,175 @@
-Crypto Volatility Prediction (Machine Learning)
+# Crypto Volatility Prediction (Machine Learning)
 
 A machine learning project that analyzes cryptocurrency market data and predicts price volatility using regression models. The project explores relationships between market indicators and volatility to understand which factors drive unstable price behavior in crypto assets.
 
-Project Goal
+---
+
+## Project Goal
 
 Cryptocurrency markets are highly volatile, which creates both opportunity and risk. The goal of this project is to:
 
-Analyze historical crypto market data
+- Analyze historical crypto market data  
+- Identify features that influence volatility  
+- Build a machine learning model to predict volatility  
+- Evaluate model performance using standard regression metrics  
 
-Identify features that influence volatility
+This project demonstrates a **complete beginner-friendly ML workflow from raw data to model evaluation**.
 
-Build a machine learning model to predict volatility
+---
 
-Evaluate model performance using standard regression metrics
-
-This project demonstrates a complete beginner-friendly ML workflow from raw data to model evaluation.
-
-Project Pipeline
+## Project Pipeline
 
 The project follows a typical data science workflow:
 
-Data Collection and Loading
+1. Data Collection and Loading  
+2. Data Cleaning and Preprocessing  
+3. Exploratory Data Analysis (EDA)  
+4. Feature Engineering  
+5. Model Training  
+6. Model Evaluation  
+7. Model Saving for Future Use  
 
-Data Cleaning and Preprocessing
+---
 
-Exploratory Data Analysis (EDA)
-
-Feature Engineering
-
-Model Training
-
-Model Evaluation
-
-Model Saving for Future Use
-
-Exploratory Data Analysis
+## Exploratory Data Analysis
 
 Several patterns emerged during data exploration.
 
 Key observations:
 
-Smaller cryptocurrencies tend to show higher volatility.
+- Smaller cryptocurrencies tend to show **higher volatility**
+- Trading volume alone does **not strongly explain volatility**
+- Daily returns are **highly correlated with volatility**
+- Some altcoins show extreme fluctuations compared to large-cap coins
 
-Trading volume alone does not strongly explain volatility.
+### Feature Correlation
 
-Daily returns are highly correlated with volatility.
+| Feature | Correlation with Volatility |
+|--------|--------|
+| Volume | -0.014 |
+| Market Cap | -0.009 |
+| Daily Return | 0.94 |
 
-Some altcoins show extreme fluctuations compared to large-cap coins.
+Daily returns turned out to be the **strongest predictive feature**.
 
-Correlation with target variable:
+---
 
-Feature	Correlation with Volatility
-Volume	-0.014
-Market Cap	-0.009
-Daily Return	0.94
-
-Daily returns turned out to be the strongest predictive feature.
-
-Models Used
+## Models Used
 
 Two regression models were tested:
 
-Linear Regression
+### 1. Linear Regression
+- Used as a baseline model
+- Helps understand linear relationships between features
 
-Simple baseline model
+### 2. Random Forest Regressor
+- Ensemble learning model
+- Captures nonlinear relationships
+- Performs better on complex datasets
 
-Helps understand linear relationships
-
-Random Forest Regressor
-
-Ensemble learning model
-
-Captures nonlinear relationships
-
-Better performance on complex datasets
-
-Because this is time-based data, the dataset was split chronologically instead of randomly to prevent data leakage.
+Because this is time-based data, the dataset was split **chronologically instead of randomly** to prevent data leakage.
 
 Train/Test split:
 
-80% Training
+- **80% Training**
+- **20% Testing**
 
-20% Testing
+---
 
-Model Performance
+## Model Performance
 
-Final model: Random Forest Regressor
+Final model used: **Random Forest Regressor**
 
-Evaluation metrics:
+| Metric | Score |
+|------|------|
+| RMSE | 0.035 |
+| MAE | 0.015 |
+| R² Score | 0.75 |
 
-Metric	Score
-RMSE	0.035
-MAE	0.015
-R² Score	0.75
+The model explains approximately **75% of the variance in cryptocurrency volatility**.
 
-The model explains roughly 75% of the variance in cryptocurrency volatility, which shows a strong predictive relationship between the selected features and market fluctuations.
+---
 
-Tech Stack
+## Tech Stack
 
-Python ecosystem used for this project:
+- Python  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Scikit-learn  
+- Joblib  
+- Jupyter Notebook  
 
-Python
+---
 
-Pandas
+## Project Structure
 
-NumPy
 
-Matplotlib
-
-Scikit-learn
-
-Joblib
-
-Jupyter Notebook
-
-Project Structure
 crypto-volatility-prediction
 │
 ├── data
-│   └── crypto_data.csv
+│ └── crypto_data.csv
 │
 ├── notebooks
-│   └── Crypto_volatility_prediction.ipynb
+│ └── Crypto_volatility_prediction.ipynb
 │
 ├── model
-│   └── crypto_model.pkl
+│ └── crypto_model.pkl
 │
 └── README.md
-Model Saving
 
-The trained model is saved using Joblib so it can be reused for predictions or deployment.
 
+---
+
+## Model Saving
+
+The trained model is saved using Joblib.
+
+python
 import joblib
 joblib.dump(model, "crypto_model.pkl")
-How to Run the Project
 
-Clone the repository
+This allows the model to be reused later for predictions or deployment.
 
+---
+## How to Run the Project
+
+1. Clone the repository
 git clone https://github.com/yourusername/crypto-volatility-prediction.git
-
-Install dependencies
-
+2. Install dependencies
 pip install pandas numpy matplotlib scikit-learn joblib
-
-Run Jupyter Notebook
-
+3. Run Jupyter Notebook
 jupyter notebook
 
-Open the notebook and execute the cells sequentially.
+Open the notebook and run the cells step by step.
 
-Future Improvements
+---
+## Future Improvements
 
-Possible improvements for future versions of this project:
+- Hyperparameter tuning for Random Forest
 
-Hyperparameter tuning for Random Forest
+- Testing advanced models such as XGBoost or LSTM
 
-Testing advanced models (XGBoost, LightGBM, LSTM)
+- Integrating real-time cryptocurrency APIs
 
-Integrating real-time crypto market APIs
+- Building a dashboard for volatility monitoring
 
-Creating a dashboard for volatility monitoring
+- Deploying the model as an API or web application
 
-Deploying the model as a prediction API
+---
+## Key Learning Outcomes
 
-Key Learning Outcomes
+- Understanding the machine learning workflow
 
-Practical experience with the machine learning workflow
+- Performing exploratory data analysis on financial data
 
-Feature correlation analysis
+- Training and evaluating regression models
 
-Regression model training and evaluation
+- Working with time-series style dataset splits
 
-Handling time-series style data splits
+- Saving trained models using Joblib
 
-Model persistence using Joblib
-
-Author
+---
+## Author
 
 Machine Learning project focused on financial data analysis and predictive modeling.
