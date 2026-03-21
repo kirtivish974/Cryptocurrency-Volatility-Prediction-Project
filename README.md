@@ -1,182 +1,126 @@
-# Crypto Volatility Prediction (Machine Learning)
+# 📊 Cryptocurrency Volatility Prediction
 
-A machine learning project that analyzes cryptocurrency market data and predicts price volatility using regression models. The project explores relationships between market indicators and volatility to understand which factors drive unstable price behavior in crypto assets.
+## 🚀 Overview
 
----
-
-## Project Goal
-
-Cryptocurrency markets are highly volatile, which creates both opportunity and risk. The goal of this project is to:
-
-- Analyze historical crypto market data  
-- Identify features that influence volatility  
-- Build a machine learning model to predict volatility  
-- Evaluate model performance using standard regression metrics  
-
-This project demonstrates a **complete beginner-friendly ML workflow from raw data to model evaluation**.
+This project focuses on predicting cryptocurrency volatility using machine learning techniques. The goal is to analyze historical market data and build a model that can estimate future volatility patterns, helping in better risk assessment and decision-making.
 
 ---
 
-## Project Pipeline
+## 🎯 Problem Statement
 
-The project follows a typical data science workflow:
+Cryptocurrency markets are highly volatile, making it difficult for investors and analysts to manage risk.
+This project aims to:
 
-1. Data Collection and Loading  
-2. Data Cleaning and Preprocessing  
-3. Exploratory Data Analysis (EDA)  
-4. Feature Engineering  
-5. Model Training  
-6. Model Evaluation  
-7. Model Saving for Future Use  
+* Analyze historical crypto price data
+* Identify volatility patterns
+* Build a predictive model for volatility estimation
 
 ---
 
-## Exploratory Data Analysis
+## 📂 Dataset
 
-Several patterns emerged during data exploration.
-
-Key observations:
-
-- Smaller cryptocurrencies tend to show **higher volatility**
-- Trading volume alone does **not strongly explain volatility**
-- Daily returns are **highly correlated with volatility**
-- Some altcoins show extreme fluctuations compared to large-cap coins
-
-### Feature Correlation
-
-| Feature | Correlation with Volatility |
-|--------|--------|
-| Volume | -0.014 |
-| Market Cap | -0.009 |
-| Daily Return | 0.94 |
-
-Daily returns turned out to be the **strongest predictive feature**.
+* Historical OHLCV (Open, High, Low, Close, Volume) data
+* Data spans multiple cryptocurrencies over several years
+* Includes 72,000+ rows of processed data
 
 ---
 
-## Models Used
+## 🛠️ Approach
 
-Two regression models were tested:
+### 1. Data Cleaning & Preprocessing
 
-### 1. Linear Regression
-- Used as a baseline model
-- Helps understand linear relationships between features
+* Handled missing and inconsistent values
+* Removed infinite values
+* Standardized data for analysis
 
-### 2. Random Forest Regressor
-- Ensemble learning model
-- Captures nonlinear relationships
-- Performs better on complex datasets
+### 2. Exploratory Data Analysis (EDA)
 
-Because this is time-based data, the dataset was split **chronologically instead of randomly** to prevent data leakage.
+* Analyzed volatility trends across different cryptocurrencies
+* Compared large-cap vs small-cap behavior
+* Identified patterns in price fluctuations
 
-Train/Test split:
+### 3. Feature Engineering
 
-- **80% Training**
-- **20% Testing**
+Engineered meaningful financial indicators:
 
----
-
-## Model Performance
-
-Final model used: **Random Forest Regressor**
-
-| Metric | Score |
-|------|------|
-| RMSE | 0.035 |
-| MAE | 0.015 |
-| R² Score | 0.75 |
-
-The model explains approximately **75% of the variance in cryptocurrency volatility**.
+* Bollinger Bands
+* Average True Range (ATR)
+* Rolling Volatility
+* Moving Averages
+* Momentum Indicators
 
 ---
 
-## Tech Stack
+## 🤖 Model Development
 
-- Python  
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Scikit-learn  
-- Joblib  
-- Jupyter Notebook  
+* Model Used: **Random Forest Regressor**
+* Reason: Handles non-linear relationships and complex feature interactions effectively
 
 ---
 
-## Project Structure
+## 📈 Results
 
-
-crypto-volatility-prediction
-
-│
-├── data
-
- └── crypto_data.csv
-
-│
-├── notebooks
-
- └── Crypto_volatility_prediction.ipynb
-
-│
-├── model
-
- └── crypto_model.pkl
-
-│
-└── README.md
-
+* Evaluated model using RMSE and R² score
+* Model shows strong predictive capability on processed dataset
+* Performance validated to reduce overfitting and improve generalization
 
 ---
 
-## Model Saving
+## 🔍 Key Insights
 
-The trained model is saved using Joblib.
-
-python
-import joblib
-joblib.dump(model, "crypto_model.pkl")
-
-This allows the model to be reused later for predictions or deployment.
+* Smaller-cap cryptocurrencies tend to show higher volatility
+* Market fluctuations are strongly influenced by momentum indicators
+* Feature engineering significantly improves prediction performance
 
 ---
-## How to Run the Project
 
-1. Clone the repository
-git clone https://github.com/yourusername/crypto-volatility-prediction.git
-2. Install dependencies
-pip install pandas numpy matplotlib scikit-learn joblib
-3. Run Jupyter Notebook
-jupyter notebook
+## 💾 Model Saving
 
-Open the notebook and run the cells step by step.
+* Saved trained model and scaler using **Joblib**
+* Enables reuse and deployment
 
 ---
-## Future Improvements
 
-- Hyperparameter tuning for Random Forest
+## ▶️ How to Run
 
-- Testing advanced models such as XGBoost or LSTM
+1. Clone the repository:
 
-- Integrating real-time cryptocurrency APIs
+```bash
+git clone https://github.com/kirtivish974/Cryptocurrency-Volatility-Prediction-Project
+```
 
-- Building a dashboard for volatility monitoring
+2. Install dependencies:
 
-- Deploying the model as an API or web application
+```bash
+pip install -r requirements.txt
+```
 
----
-## Key Learning Outcomes
+3. Run the notebook:
 
-- Understanding the machine learning workflow
-
-- Performing exploratory data analysis on financial data
-
-- Training and evaluating regression models
-
-- Working with time-series style dataset splits
-
-- Saving trained models using Joblib
+* Open Jupyter Notebook
+* Execute all cells
 
 ---
-## Author
 
-Machine Learning project focused on financial data analysis and predictive modeling.
+## 🧰 Tech Stack
+
+* Python
+* Pandas, NumPy
+* Scikit-learn
+* Matplotlib, Seaborn
+
+---
+
+## 📌 Future Improvements
+
+* Hyperparameter tuning for better performance
+* Try advanced models (XGBoost, LSTM)
+* Deploy as a web application
+
+---
+
+## 🙋‍♀️ Author
+
+**Kirti Vishwakarma**
+
+* GitHub: https://github.com/kirtivish974
